@@ -16,7 +16,7 @@ export default function NavbarMenu() {
   return (
     <Navbar
       expand="md"
-      className=" sticky-top container-fluid border-bottom p-3"
+      className=" sticky-top container-fluid border-bottom p-3 bg-white"
       variant="light"
     >
       <Container>
