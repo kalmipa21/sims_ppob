@@ -7,6 +7,7 @@ import { axiosInstance } from "../configs/https";
 
 import ProfileNBalance from "../components/ProfileNBalance";
 import ServicesApps from "../components/ServicesApps";
+import Banner from "../components/Banner";
 
 export default function Home() {
   const [getProfile, setGetProfile] = useState({});
@@ -42,6 +43,7 @@ export default function Home() {
         setIsLoad(false);
       });
   }
+
   function handleGetBalance() {
     dispatch({ type: "SET_LOADING", value: true });
     axiosInstance
@@ -58,6 +60,7 @@ export default function Home() {
         setIsLoad(false);
       });
   }
+
   function handleGetServices() {
     dispatch({ type: "SET_LOADING", value: true });
     axiosInstance
@@ -74,6 +77,7 @@ export default function Home() {
         setIsLoad(false);
       });
   }
+
   function handleGetBanner() {
     dispatch({ type: "SET_LOADING", value: true });
     axiosInstance
@@ -94,15 +98,12 @@ export default function Home() {
   return (
     <Container className=" py-4">
       <Row>
-        <ProfileNBalance
-          getBalance={getBalance}
-          getProfile={getProfile}
-          getBanner={getBanner}
-        />
+        <ProfileNBalance getBalance={getBalance} getProfile={getProfile} />
       </Row>
-      <Row className=" d-flex justify-content-evenly mt-5">
+      <Row className=" d-flex justify-content-evenly my-5">
         <ServicesApps getServices={getServices} />
       </Row>
+      <Banner getBanner={getBanner} />
     </Container>
   );
 }
