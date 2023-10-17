@@ -1,3 +1,10 @@
+import { useEffect } from "react";
+import { useNavigate } from "react-router-dom";
+
 export default function Error() {
-  return <h1>Error</h1>;
+  const navigate = useNavigate();
+  useEffect(() => {
+    navigate("/login");
+  });
+  return;
 }
