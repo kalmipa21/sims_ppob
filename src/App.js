@@ -1,6 +1,8 @@
 import { Outlet } from "react-router-dom";
-import Loading from "./components/Loading";
 import { useSelector } from "react-redux";
+
+import Loading from "./components/Loading";
+import NavbarMenu from "./components/NavbarMenu";
 
 function App() {
   const { isLoading } = useSelector((state) => state.loading);
@@ -8,10 +10,9 @@ function App() {
   return (
     <>
       {isLoading && <Loading />}
+      <NavbarMenu />
 
-      <main className="app__main">
-        <Outlet />
-      </main>
+      <Outlet />
     </>
   );
 }
