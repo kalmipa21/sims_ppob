@@ -8,10 +8,20 @@ import {
   InputGroup,
 } from "react-bootstrap";
 
+import { useFormik } from "formik";
+import * as Yup from "yup";
+import { useDispatch } from "react-redux";
+import { axiosInstance } from "../configs/https";
+
 import IllusLogin from "../assets/images/Illustrasi Login.png";
 import Logo from "../assets/images/Logo.png";
 import { useState } from "react";
 import { Link } from "react-router-dom";
+
+const validationSchema = Yup.object({
+  email: Yup.string().required("Field is required").email(),
+  password: Yup.string().required("Field is required").min(8).max(20),
+});
 
 export default function Registration() {
   const [showPass, setShowPass] = useState(false);
@@ -156,8 +166,10 @@ export default function Registration() {
             </Form>
           </Card.Body>
           <span className=" mt-3 text-center">
-            sudah punya akun? login
-            <Link to="/">di sini</Link>
+            sudah punya akun? login{" "}
+            <Link style={{ textDecoration: "none", color: "red" }} to="/">
+              di sini
+            </Link>
           </span>
         </Card>
       </Col>

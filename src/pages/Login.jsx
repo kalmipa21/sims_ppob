@@ -175,8 +175,13 @@ export default function Login() {
             </Form>
           </Card.Body>
           <span className=" mt-3 text-center">
-            belum punya akun? registrasi
-            <Link to="/registration">di sini</Link>
+            belum punya akun? registrasi{" "}
+            <Link
+              style={{ textDecoration: "none", color: "red" }}
+              to="/registration"
+            >
+              di sini
+            </Link>
           </span>
         </Card>
         {isInvalid && (
