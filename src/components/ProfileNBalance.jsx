@@ -37,7 +37,7 @@ export default function ProfileNBalance({ getBalance, getProfile }) {
       </Col>
       <Col
         sm="7"
-        className=" bg-danger rounded-4 text-white d-flex flex-column justify-content-center"
+        className="p-4 bg-danger rounded-4 text-white d-flex flex-column justify-content-center"
       >
         <h6>Saldo Anda</h6>
         {seenSaldo ? (

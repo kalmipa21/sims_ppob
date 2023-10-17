@@ -6,6 +6,7 @@ import { useDispatch } from "react-redux";
 import { axiosInstance } from "../configs/https";
 
 import ProfileNBalance from "../components/ProfileNBalance";
+import ServicesApps from "../components/ServicesApps";
 
 export default function Home() {
   const [getProfile, setGetProfile] = useState({});
@@ -96,9 +97,11 @@ export default function Home() {
         <ProfileNBalance
           getBalance={getBalance}
           getProfile={getProfile}
-          getServices={getServices}
           getBanner={getBanner}
         />
+      </Row>
+      <Row className=" d-flex justify-content-evenly mt-5">
+        <ServicesApps getServices={getServices} />
       </Row>
     </Container>
   );
