@@ -9,7 +9,12 @@ import Login from "../pages/Login";
 import Error from "../pages/Error";
 import Home from "../pages/Home";
 import Registration from "../pages/Registration";
+import Akun from "../pages/Akun";
+import TopUp from "../pages/TopUp";
+import Transaction from "../pages/Transaction";
+
 import LayoutAuth from "../layouts/LayoutAuth";
+
 import stores from "../stores";
 
 const { auth } = stores.getState();
@@ -26,6 +31,9 @@ export default createBrowserRouter(
       }
     >
       <Route path="/home" element={<Home />} />
+      <Route path="/akun" element={<Akun />} />
+      <Route path="/topup" element={<TopUp />} />
+      <Route path="/transaction" element={<Transaction />} />
 
       <Route path="/login" element={<Login />} />
       <Route path="/registration" element={<Registration />} />

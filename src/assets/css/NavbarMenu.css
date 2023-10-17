@@ -1,0 +1,22 @@
+.link {
+  text-decoration: none;
+  color: #000000;
+}
+.link:hover {
+  color: #ff0000;
+}
+
+.active,
+.active:hover {
+  font-weight: 700;
+  color: #ff0000;
+}
+
+.titleNavbar {
+  color: #3d535f;
+}
+
+.mynavbar {
+  background-color: rgb(243, 245, 248, 0.3) !important;
+  backdrop-filter: blur(50px);
+}
