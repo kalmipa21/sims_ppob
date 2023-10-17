@@ -100,13 +100,15 @@ export default function Registration() {
             <Form onSubmit={formik.handleSubmit} className=" d-grid">
               <Form.Group className="my-3">
                 <InputGroup>
-                  <Button
-                    disabled
-                    variant="transparent"
-                    className="border-end-0 border-dark-subtle"
+                  <InputGroup.Text
+                    className={
+                      formik.touched.email && formik.errors.email
+                        ? "border-danger border-end-0"
+                        : "border-end-0 border-dark-subtle"
+                    }
                   >
                     <i className="bi bi-at"></i>
-                  </Button>
+                  </InputGroup.Text>
 
                   <Form.Control
                     id="email"
@@ -118,7 +120,7 @@ export default function Registration() {
                     onChange={formik.handleChange}
                     className={
                       formik.touched.email && formik.errors.email
-                        ? "border-danger"
+                        ? "border-danger border-start-0"
                         : "border-start-0 border-dark-subtle"
                     }
                   />
@@ -132,13 +134,15 @@ export default function Registration() {
 
               <Form.Group className="">
                 <InputGroup>
-                  <Button
-                    disabled
-                    variant="transparent"
-                    className="border-end-0 border-dark-subtle"
+                  <InputGroup.Text
+                    className={
+                      formik.touched.first_name && formik.errors.first_name
+                        ? "border-danger border-end-0"
+                        : "border-end-0 border-dark-subtle"
+                    }
                   >
                     <i className="bi bi-person"></i>
-                  </Button>
+                  </InputGroup.Text>
 
                   <Form.Control
                     id="first_name"
@@ -150,7 +154,7 @@ export default function Registration() {
                     onChange={formik.handleChange}
                     className={
                       formik.touched.first_name && formik.errors.first_name
-                        ? "border-danger"
+                        ? "border-danger border-start-0"
                         : "border-start-0 border-dark-subtle"
                     }
                   />
@@ -164,13 +168,15 @@ export default function Registration() {
 
               <Form.Group className="my-3">
                 <InputGroup>
-                  <Button
-                    disabled
-                    variant="transparent"
-                    className="border-end-0 border-dark-subtle"
+                  <InputGroup.Text
+                    className={
+                      formik.touched.last_name && formik.errors.last_name
+                        ? "border-danger border-end-0"
+                        : "border-end-0 border-dark-subtle"
+                    }
                   >
                     <i className="bi bi-person"></i>
-                  </Button>
+                  </InputGroup.Text>
 
                   <Form.Control
                     id="last_name"
@@ -182,7 +188,7 @@ export default function Registration() {
                     onChange={formik.handleChange}
                     className={
                       formik.touched.last_name && formik.errors.last_name
-                        ? "border-danger"
+                        ? "border-danger border-start-0"
                         : "border-start-0 border-dark-subtle"
                     }
                   />
@@ -196,13 +202,15 @@ export default function Registration() {
 
               <Form.Group className=" mb-3">
                 <InputGroup>
-                  <Button
-                    disabled
-                    variant="transparent"
-                    className="border-end-0 border-dark-subtle"
+                  <InputGroup.Text
+                    className={
+                      formik.touched.password && formik.errors.password
+                        ? "border-danger border-end-0"
+                        : "border-end-0 border-dark-subtle"
+                    }
                   >
                     <i className="bi bi-lock"></i>
-                  </Button>
+                  </InputGroup.Text>
                   <Form.Control
                     id="password"
                     name="password"
@@ -213,7 +221,7 @@ export default function Registration() {
                     onChange={formik.handleChange}
                     className={
                       formik.touched.password && formik.errors.password
-                        ? "border-danger"
+                        ? "border-danger border-end-0 border-start-0"
                         : "border-end-0 border-start-0 rounded-end-0 border-dark-subtle"
                     }
                   />
@@ -238,13 +246,16 @@ export default function Registration() {
 
               <Form.Group className=" mb-5">
                 <InputGroup>
-                  <Button
-                    disabled
-                    variant="transparent"
-                    className="border-end-0 border-dark-subtle"
+                  <InputGroup.Text
+                    className={
+                      formik.touched.confirm_password &&
+                      formik.errors.confirm_password
+                        ? "border-danger border-end-0"
+                        : "border-end-0 border-dark-subtle"
+                    }
                   >
                     <i className="bi bi-lock"></i>
-                  </Button>
+                  </InputGroup.Text>
                   <Form.Control
                     id="confirm_password"
                     name="confirm_password"
@@ -256,7 +267,7 @@ export default function Registration() {
                     className={
                       formik.touched.confirm_password &&
                       formik.errors.confirm_password
-                        ? "border-danger"
+                        ? "border-danger border-end-0 border-start-0"
                         : "border-end-0 border-start-0 rounded-end-0 border-dark-subtle"
                     }
                   />

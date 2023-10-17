@@ -89,13 +89,15 @@ export default function Login() {
             <Form onSubmit={formik.handleSubmit} className=" d-grid">
               <Form.Group className="my-3">
                 <InputGroup>
-                  <Button
-                    disabled
-                    variant="transparent"
-                    className="border-end-0 border-dark-subtle"
+                  <InputGroup.Text
+                    className={
+                      formik.touched.email && formik.errors.email
+                        ? "border-danger border-end-0"
+                        : "border-end-0 border-dark-subtle"
+                    }
                   >
                     <i className="bi bi-at"></i>
-                  </Button>
+                  </InputGroup.Text>
                   <Form.Control
                     id="email"
                     name="email"
@@ -107,11 +109,11 @@ export default function Login() {
                       formik.handleChange(e);
                       setIsInvalid("");
                     }}
-                    className={`border-start-0 border-dark-subtle ${
+                    className={
                       formik.touched.email && formik.errors.email
-                        ? "border-danger"
-                        : ""
-                    }`}
+                        ? "border-danger border-start-0"
+                        : "border-start-0 border-dark-subtle"
+                    }
                   />
                 </InputGroup>
                 {formik.touched.email && formik.errors.email && (
@@ -122,13 +124,15 @@ export default function Login() {
               </Form.Group>
               <Form.Group className=" mb-5">
                 <InputGroup>
-                  <Button
-                    disabled
-                    variant="transparent"
-                    className="border-end-0 border-dark-subtle"
+                  <InputGroup.Text
+                    className={
+                      formik.touched.password && formik.errors.password
+                        ? "border-danger border-end-0"
+                        : "border-end-0 border-dark-subtle"
+                    }
                   >
                     <i className="bi bi-lock"></i>
-                  </Button>
+                  </InputGroup.Text>
                   <Form.Control
                     id="password"
                     name="password"
@@ -140,15 +144,19 @@ export default function Login() {
                       formik.handleChange(e);
                       setIsInvalid("");
                     }}
-                    className={`border-end-0 border-start-0 rounded-end-0 border-dark-subtle ${
+                    className={
                       formik.touched.password && formik.errors.password
-                        ? "border-danger"
-                        : ""
-                    }`}
+                        ? "border-danger border-end-0 border-start-0"
+                        : "border-end-0 border-start-0 rounded-end-0 border-dark-subtle"
+                    }
                   />
                   <Button
                     variant="light"
-                    className=" border-top border-bottom border-start-0 rounded-start-0 border-dark-subtle"
+                    className={
+                      formik.touched.password && formik.errors.password
+                        ? "border-danger border-start-0 "
+                        : " border-top border-bottom border-start-0 rounded-start-0 border-dark-subtle"
+                    }
                     onClick={handleShowPass}
                   >
                     {showPass ? (
