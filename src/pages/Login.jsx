@@ -15,7 +15,7 @@ import { axiosInstance } from "../configs/https";
 import IllusLogin from "../assets/images/Illustrasi Login.png";
 import Logo from "../assets/images/Logo.png";
 import { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 const validationSchema = Yup.object({
   email: Yup.string().required("Field is required").email(),
@@ -23,6 +23,7 @@ const validationSchema = Yup.object({
 });
 
 export default function Login() {
+  const navigate = useNavigate();
   const dispatch = useDispatch();
   const [isInvalid, setIsInvalid] = useState("");
 
@@ -46,7 +47,14 @@ export default function Login() {
     axiosInstance
       .post("/login", form)
       .then((response) => {
-        console.log(response.data.data.token);
+        // console.log(response.data.data.token);
+        const token = response.data.data.token;
+
+        // set store
+        dispatch({ type: "AUTH_TOKEN", value: token });
+
+        localStorage.setItem("token", token);
+        navigate("/home");
       })
       .catch((error) => {
         console.error(error.response.data.message);

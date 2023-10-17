@@ -6,11 +6,14 @@ export const axiosInstance = axios.create({
   baseURL: process.env.REACT_APP_BASE_URL,
 });
 
+// console.log("auth", auth);
+
 axiosInstance.interceptors.request.use(
   function (config) {
     const token = auth.token;
     if (token) {
       config.headers.Authorization = `Bearer ${token}`;
+      // console.log("auth token", config.headers.Authorization);
     }
     return config;
   },
