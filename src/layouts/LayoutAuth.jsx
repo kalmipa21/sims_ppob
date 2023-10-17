@@ -4,7 +4,7 @@ const LayoutAuth = ({ auth, children }) => {
   const { token } = auth;
   const location = useLocation();
 
-  const isPage = ["/login"].includes(location.pathname);
+  const isPage = ["/login", "/registration"].includes(location.pathname);
 
   if (!token) {
     // console.log("Redirecting to root");

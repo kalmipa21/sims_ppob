@@ -55,9 +55,10 @@ export default function Login() {
 
         localStorage.setItem("token", token);
         navigate("/home");
+        window.location.href = "/home";
       })
       .catch((error) => {
-        console.error(error.response.data.message);
+        // console.error(error.response.data.message);
         setIsInvalid(error.response.data.message);
       })
       .finally(() => {

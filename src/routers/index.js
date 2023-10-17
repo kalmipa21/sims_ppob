@@ -14,16 +14,19 @@ import stores from "../stores";
 
 const { auth } = stores.getState();
 
+// console.log("auth", auth);
+
 export default createBrowserRouter(
   createRoutesFromElements(
-    <Route element={<App />}>
-      <Route
-        element={
-          <LayoutAuth auth={auth}>
-            <Route path="/home" element={<Home />} />
-          </LayoutAuth>
-        }
-      ></Route>
+    <Route
+      element={
+        <LayoutAuth auth={auth}>
+          <App />
+        </LayoutAuth>
+      }
+    >
+      <Route path="/home" element={<Home />} />
+
       <Route path="/login" element={<Login />} />
       <Route path="/registration" element={<Registration />} />
       <Route path="*" element={<Error />} />
