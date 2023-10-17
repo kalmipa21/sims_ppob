@@ -4,7 +4,7 @@ import "react-multi-carousel/lib/styles.css";
 
 export default function Banner({ getBanner }) {
   // const [bannerList, setBannerList] = useState([]);
-  console.log("getBanner", getBanner);
+  // console.log("getBanner", getBanner);
 
   // useEffect(() => {
   //   if (getBanner.length) {
