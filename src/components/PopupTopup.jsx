@@ -1,12 +1,15 @@
 import { Modal } from "react-bootstrap";
+import { Link, useNavigate } from "react-router-dom";
+import { useState } from "react";
+
+import Failed from "../assets/images/failed.png";
 import Logo from "../assets/images/Logo.png";
 import formatCurrency from "../utils/currency";
-import { Link, useNavigate } from "react-router-dom";
 import { axiosInstance } from "../configs/https";
-import { useState } from "react";
 
 export default function PopupTopup(props) {
   const [confirmPopup, setConfirmPopup] = useState(false);
+  const [failedPopup, setFailedPopup] = useState(false);
 
   const navigate = useNavigate();
 
@@ -21,7 +24,10 @@ export default function PopupTopup(props) {
         }
       })
       .catch((error) => {
-        console.error(error.response);
+        // console.error(error.response);
+        if (error.response.data.status === 102 || 108) {
+          setFailedPopup(true);
+        }
       })
       .finally(() => {});
   }
@@ -31,18 +37,29 @@ export default function PopupTopup(props) {
   }
 
   return (
-    <Modal {...props} size="sm" centered>
+    <Modal
+      {...props}
+      size="sm"
+      centered
+      backdrop={"static"}
+      keyboard={confirmPopup ? false : true}
+    >
       <Modal.Header className="d-flex justify-content-center border-0 mt-3">
-        <img src={Logo} alt="logo" style={{ width: "2.5rem" }} />
+        <img
+          src={failedPopup ? Failed : Logo}
+          alt="logo"
+          style={{ width: "2.5rem" }}
+        />
       </Modal.Header>
       <Modal.Body className="text-center">
         <p>Anda yakin untuk Top Up sebesar</p>
         <h4 className=" fw-bold">
-          {formatCurrency(props.nominal.top_up_amount)} ?
+          {formatCurrency(props.nominal.top_up_amount)}{" "}
+          {!failedPopup && !confirmPopup && "?"}
         </h4>
       </Modal.Body>
       <Modal.Footer className="d-flex flex-column justify-content-center border-0 mb-3">
-        {confirmPopup ? (
+        {confirmPopup && (
           <>
             <p>berhasil!!</p>
             <Link
@@ -52,7 +69,19 @@ export default function PopupTopup(props) {
               Kembali ke Beranda
             </Link>
           </>
-        ) : (
+        )}
+        {failedPopup && (
+          <>
+            <p>gagal!!</p>
+            <Link
+              onClick={handleToHome}
+              className="text-decoration-none text-danger fw-bold"
+            >
+              Kembali ke Beranda
+            </Link>
+          </>
+        )}
+        {!confirmPopup && !failedPopup && (
           <>
             <Link
               onClick={handleTopUp}
