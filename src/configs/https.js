@@ -30,7 +30,13 @@ axiosInstance.interceptors.response.use(
   function (error) {
     const statusCode = error.response.status;
 
+    console.log("statusCode", statusCode);
+
     if (statusCode === 108) {
+      localStorage.removeItem("token");
+      window.location.href = "/login";
+    }
+    if (statusCode === 401) {
       localStorage.removeItem("token");
       window.location.href = "/login";
     }

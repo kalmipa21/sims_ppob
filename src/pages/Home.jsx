@@ -36,7 +36,7 @@ export default function Home() {
         setGetProfile(response.data.data);
       })
       .catch((error) => {
-        console.error("error", error);
+        // console.error("ini error", error);
       })
       .finally(() => {
         dispatch({ type: "SET_LOADING", value: false });
@@ -53,7 +53,7 @@ export default function Home() {
         setGetBalance(response.data.data.balance);
       })
       .catch((error) => {
-        console.error("error", error);
+        // console.error("error", error);
       })
       .finally(() => {
         dispatch({ type: "SET_LOADING", value: false });
@@ -70,7 +70,7 @@ export default function Home() {
         setGetServices(response.data.data);
       })
       .catch((error) => {
-        console.error("error", error);
+        // console.error("error", error);
       })
       .finally(() => {
         dispatch({ type: "SET_LOADING", value: false });
@@ -87,7 +87,7 @@ export default function Home() {
         setGetBanner(response.data.data);
       })
       .catch((error) => {
-        console.error("error", error);
+        // console.error("error", error);
       })
       .finally(() => {
         dispatch({ type: "SET_LOADING", value: false });
