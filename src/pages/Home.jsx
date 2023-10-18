@@ -10,8 +10,8 @@ import ServicesApps from "../components/ServicesApps";
 import Banner from "../components/Banner";
 
 export default function Home() {
-  const [getProfile, setGetProfile] = useState({});
-  const [getBalance, setGetBalance] = useState({});
+  // const [getProfile, setGetProfile] = useState({});
+  // const [getBalance, setGetBalance] = useState({});
   const [getServices, setGetServices] = useState({});
   const [getBanner, setGetBanner] = useState({});
   const [isLoad, setIsLoad] = useState(true);
@@ -33,7 +33,13 @@ export default function Home() {
       .get("/profile")
       .then((response) => {
         // console.log("profile", response);
-        setGetProfile(response.data.data);
+        // setGetProfile(response.data.data);
+        const username = `${response.data.data.first_name} ${response.data.data.last_name}`;
+        const profile_image = response.data.data.profile_image;
+
+        // Set Profile to store
+        dispatch({ type: "SET_USERNAME", value: username });
+        dispatch({ type: "SET_PHOTO_PROFILE", value: profile_image });
       })
       .catch((error) => {
         // console.error("ini error", error);
@@ -50,7 +56,11 @@ export default function Home() {
       .get("/balance")
       .then((response) => {
         // console.log("balance", response);
-        setGetBalance(response.data.data.balance);
+        // setGetBalance(response.data.data.balance);
+        const balance = response.data.data.balance;
+
+        // Set balanceto store
+        dispatch({ type: "SET_BALANCE", value: balance });
       })
       .catch((error) => {
         // console.error("error", error);
@@ -98,7 +108,10 @@ export default function Home() {
   return (
     <Container className=" py-4">
       <Row>
-        <ProfileNBalance getBalance={getBalance} getProfile={getProfile} />
+        <ProfileNBalance
+        // getBalance={getBalance}
+        // getProfile={getProfile}
+        />
       </Row>
       <Row className=" d-flex justify-content-evenly my-5">
         <ServicesApps getServices={getServices} />

@@ -1,7 +1,4 @@
-import { useEffect, useState } from "react";
-import { useDispatch } from "react-redux";
-
-import { axiosInstance } from "../configs/https";
+import { useState } from "react";
 
 import ProfileNBalance from "../components/ProfileNBalance";
 import { Button, Col, Container, Form, InputGroup, Row } from "react-bootstrap";
@@ -9,55 +6,6 @@ import formatCurrency from "../utils/currency";
 import PopupTopup from "../components/PopupTopup";
 
 export default function TopUp() {
-  //////////////////////////////// GET DATA ////////////////////////////////
-  const [getProfile, setGetProfile] = useState({});
-  const [getBalance, setGetBalance] = useState({});
-
-  const [isLoad, setIsLoad] = useState(true);
-
-  const dispatch = useDispatch();
-
-  useEffect(() => {
-    if (isLoad) {
-      handleGetProfile();
-      handleGetBalance();
-    }
-  });
-
-  function handleGetProfile() {
-    dispatch({ type: "SET_LOADING", value: true });
-    axiosInstance
-      .get("/profile")
-      .then((response) => {
-        // console.log("profile", response);
-        setGetProfile(response.data.data);
-      })
-      .catch((error) => {
-        // console.error("error", error);
-      })
-      .finally(() => {
-        dispatch({ type: "SET_LOADING", value: false });
-        setIsLoad(false);
-      });
-  }
-
-  function handleGetBalance() {
-    dispatch({ type: "SET_LOADING", value: true });
-    axiosInstance
-      .get("/balance")
-      .then((response) => {
-        // console.log("balance", response);
-        setGetBalance(response.data.data.balance);
-      })
-      .catch((error) => {
-        // console.error("error", error);
-      })
-      .finally(() => {
-        dispatch({ type: "SET_LOADING", value: false });
-        setIsLoad(false);
-      });
-  }
-
   //////////////////////////// INPUT BUTTON TOP UP ////////////////////////////
   const [modalShow, setModalShow] = useState(false);
   const [selectedNominal, setSelectedNominal] = useState(null);
@@ -105,7 +53,7 @@ export default function TopUp() {
   return (
     <Container className=" py-4">
       <Row>
-        <ProfileNBalance getBalance={getBalance} getProfile={getProfile} />
+        <ProfileNBalance />
       </Row>
       <Row className="my-5">
         <h6>Silahkan masukan</h6>

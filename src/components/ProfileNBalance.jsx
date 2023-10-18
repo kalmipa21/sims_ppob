@@ -3,9 +3,14 @@ import { Button, Col, Image } from "react-bootstrap";
 import formatCurrency from "../utils/currency";
 import DefaultPhoto from "../assets/images/Profile Photo.png";
 import { useState } from "react";
+import { useSelector } from "react-redux";
 
 export default function ProfileNBalance({ getBalance, getProfile }) {
   const [seenSaldo, setSeenSaldo] = useState(false);
+
+  const storeProfileBalance = useSelector((state) => state.profilebalance);
+
+  // console.log("storeProfileBalance", storeProfileBalance);
 
   function handleSeenSaldo() {
     setSeenSaldo(!seenSaldo);
@@ -13,13 +18,12 @@ export default function ProfileNBalance({ getBalance, getProfile }) {
 
   function profilePicture() {
     if (
-      getProfile.profile_image !==
+      storeProfileBalance.profile_image !==
       "https://minio.nutech-integrasi.app/take-home-test/null"
     ) {
-      return getProfile.profile_image;
-    } else {
-      return DefaultPhoto;
+      return storeProfileBalance.profile_image;
     }
+    return DefaultPhoto;
   }
 
   return (
@@ -31,9 +35,7 @@ export default function ProfileNBalance({ getBalance, getProfile }) {
           alt="DefaultPhoto"
         />
         <h6 className=" mt-3">Selamat Datang,</h6>
-        <h3>
-          {getProfile.first_name} {getProfile.last_name}
-        </h3>
+        <h3>{storeProfileBalance.username}</h3>
       </Col>
       <Col
         sm="7"
@@ -41,7 +43,7 @@ export default function ProfileNBalance({ getBalance, getProfile }) {
       >
         <h6>Saldo Anda</h6>
         {seenSaldo ? (
-          <h3>{formatCurrency(getBalance)}</h3>
+          <h3>{formatCurrency(storeProfileBalance.balance)}</h3>
         ) : (
           <h3>
             Rp <i className="bi bi-three-dots"></i>
