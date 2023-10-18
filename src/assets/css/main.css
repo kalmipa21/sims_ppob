@@ -15,3 +15,16 @@ h6 {
 .skill-slider .item img {
   width: 30%;
 }
+
+/* Add this CSS to your stylesheet or component's CSS file */
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+.fixed-width-button {
+  width: 6rem; /* Adjust the width to your desired fixed size */
+  text-align: center; /* Center-align the text within the button */
+  /* Add other styling as needed */
+}
