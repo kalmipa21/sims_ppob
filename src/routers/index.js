@@ -12,6 +12,7 @@ import Registration from "../pages/Registration";
 import Akun from "../pages/Akun";
 import TopUp from "../pages/TopUp";
 import Transaction from "../pages/Transaction";
+import Service from "../pages/Service";
 
 import LayoutAuth from "../layouts/LayoutAuth";
 
@@ -31,6 +32,7 @@ export default createBrowserRouter(
       }
     >
       <Route path="/home" element={<Home />} />
+      <Route path="/home/service" element={<Service />} />
       <Route path="/akun" element={<Akun />} />
       <Route path="/topup" element={<TopUp />} />
       <Route path="/transaction" element={<Transaction />} />
