@@ -3,14 +3,19 @@ import { Button, Col, Image } from "react-bootstrap";
 import formatCurrency from "../utils/currency";
 import DefaultPhoto from "../assets/images/Profile Photo.png";
 import { useState } from "react";
-import { useSelector } from "react-redux";
 
 export default function ProfileNBalance({ getBalance, getProfile }) {
   const [seenSaldo, setSeenSaldo] = useState(false);
 
-  const storeProfileBalance = useSelector((state) => state.profilebalance);
+  const allLocalStorageData = {};
 
-  // console.log("storeProfileBalance", storeProfileBalance);
+  for (let i = 0; i < localStorage.length; i++) {
+    const key = localStorage.key(i);
+    const value = localStorage.getItem(key);
+    allLocalStorageData[key] = value;
+  }
+
+  // console.log("allLocalStorageData", allLocalStorageData);
 
   function handleSeenSaldo() {
     setSeenSaldo(!seenSaldo);
@@ -18,10 +23,10 @@ export default function ProfileNBalance({ getBalance, getProfile }) {
 
   function profilePicture() {
     if (
-      storeProfileBalance.profile_image !==
+      allLocalStorageData.profile_image !==
       "https://minio.nutech-integrasi.app/take-home-test/null"
     ) {
-      return storeProfileBalance.profile_image;
+      return allLocalStorageData.profile_image;
     }
     return DefaultPhoto;
   }
@@ -35,7 +40,9 @@ export default function ProfileNBalance({ getBalance, getProfile }) {
           alt="DefaultPhoto"
         />
         <h6 className=" mt-3">Selamat Datang,</h6>
-        <h3>{storeProfileBalance.username}</h3>
+        <h3>
+          {allLocalStorageData.first_name} {allLocalStorageData.last_name}
+        </h3>
       </Col>
       <Col
         sm="7"
@@ -43,7 +50,7 @@ export default function ProfileNBalance({ getBalance, getProfile }) {
       >
         <h6>Saldo Anda</h6>
         {seenSaldo ? (
-          <h3>{formatCurrency(storeProfileBalance.balance)}</h3>
+          <h3>{formatCurrency(allLocalStorageData.balance)}</h3>
         ) : (
           <h3>
             Rp <i className="bi bi-three-dots"></i>

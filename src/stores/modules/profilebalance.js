@@ -1,6 +1,8 @@
 // STATE
 const initialState = {
-  username: "",
+  first_name: "",
+  last_name: "",
+  email: "",
   profile_image: "",
   balance: 0,
 };
@@ -8,10 +10,20 @@ const initialState = {
 // REDUCER
 const useReduceProfileBalance = (state = initialState, actions) => {
   switch (actions.type) {
-    case "SET_USERNAME":
+    case "SET_FIRST_NAME":
       return {
         ...state,
-        username: actions.value,
+        first_name: actions.value,
+      };
+    case "SET_LAST_NAME":
+      return {
+        ...state,
+        last_name: actions.value,
+      };
+    case "SET_EMAIL":
+      return {
+        ...state,
+        email: actions.value,
       };
     case "SET_PHOTO_PROFILE":
       return {

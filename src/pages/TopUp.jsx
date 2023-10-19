@@ -87,6 +87,7 @@ export default function TopUp() {
           </Col>
           <Col
             sm="4"
+            xl="3"
             className="d-flex flex-wrap justify-content-center row-gap-3"
           >
             {optionsNominal.map((item, index) => (

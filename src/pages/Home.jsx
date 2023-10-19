@@ -34,12 +34,30 @@ export default function Home() {
       .then((response) => {
         // console.log("profile", response);
         // setGetProfile(response.data.data);
-        const username = `${response.data.data.first_name} ${response.data.data.last_name}`;
-        const profile_image = response.data.data.profile_image;
+
+        // Set localstorage
+        localStorage.setItem("first_name", response.data.data.first_name);
+        localStorage.setItem("last_name", response.data.data.last_name);
+        localStorage.setItem("email", response.data.data.email);
+        localStorage.setItem("profile_image", response.data.data.profile_image);
 
         // Set Profile to store
-        dispatch({ type: "SET_USERNAME", value: username });
-        dispatch({ type: "SET_PHOTO_PROFILE", value: profile_image });
+        // dispatch({
+        //   type: "SET_FIRST_NAME",
+        //   value: response.data.data.first_name,
+        // });
+        // dispatch({
+        //   type: "SET_LAST_NAME",
+        //   value: response.data.data.last_name,
+        // });
+        // dispatch({
+        //   type: "SET_EMAIL",
+        //   value: response.data.data.email,
+        // });
+        // dispatch({
+        //   type: "SET_PHOTO_PROFILE",
+        //   value: response.data.data.profile_image,
+        // });
       })
       .catch((error) => {
         // console.error("ini error", error);
@@ -59,8 +77,11 @@ export default function Home() {
         // setGetBalance(response.data.data.balance);
         const balance = response.data.data.balance;
 
+        // Set localstorage
+        localStorage.setItem("balance", balance);
+
         // Set balanceto store
-        dispatch({ type: "SET_BALANCE", value: balance });
+        // dispatch({ type: "SET_BALANCE", value: balance });
       })
       .catch((error) => {
         // console.error("error", error);
