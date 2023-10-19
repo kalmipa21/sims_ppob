@@ -38,6 +38,7 @@ export default function ProfileNBalance() {
           style={{ width: "4rem" }}
           src={profilePicture()}
           alt="DefaultPhoto"
+          className="rounded-circle"
         />
         <h6 className=" mt-3">Selamat Datang,</h6>
         <h3>
