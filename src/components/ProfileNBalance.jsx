@@ -36,7 +36,7 @@ export default function ProfileNBalance() {
       <Col
         xs="4"
         sm="5"
-        className="d-grid justify-content-start align-items-center"
+        className="d-grid justify-content-start align-items-center me-sm-0 me-5"
       >
         <Image
           style={{ width: "4rem" }}
@@ -50,7 +50,7 @@ export default function ProfileNBalance() {
         </h3>
       </Col>
       <Col
-        xs="8"
+        xs="6"
         sm="7"
         className="p-4 bg-danger rounded-4 text-white d-flex flex-column justify-content-center"
       >
