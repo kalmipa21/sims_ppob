@@ -60,8 +60,8 @@ export default function TopUp() {
         <h3>Nominal Top Up</h3>
       </Row>
       <Row className="my-5">
-        <Form onSubmit={handleSubmitTopup} className=" d-flex">
-          <Col sm="8" className=" d-grid pe-3 row-gap-3">
+        <Form onSubmit={handleSubmitTopup} className=" d-sm-flex d-block">
+          <Col xs="12" sm="6" md="8" className=" d-grid pe-3 row-gap-3">
             <InputGroup className="">
               <InputGroup.Text
                 id="basic-addon1"
@@ -86,9 +86,10 @@ export default function TopUp() {
             </Button>
           </Col>
           <Col
-            sm="4"
-            xl="3"
-            className="d-flex flex-wrap justify-content-center row-gap-3"
+            xs="12"
+            sm="6"
+            md="4"
+            className="d-flex flex-wrap justify-content-center mt-sm-0 mt-3 row-gap-3"
           >
             {optionsNominal.map((item, index) => (
               <Button
