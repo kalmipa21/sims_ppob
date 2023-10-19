@@ -21,7 +21,7 @@ export default function ServicesApps({ getServices }) {
     <>
       {getServices.length &&
         getServices.map((item, index) => (
-          <Col key={`${item}-${index}`} sm="1">
+          <Col key={`${item}-${index}`} xs="3" sm="2" lg="1">
             <Button
               onClick={() => hanldeToService(item)}
               variant="transparent"

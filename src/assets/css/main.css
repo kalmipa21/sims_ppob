@@ -48,10 +48,31 @@ input[type="number"]::-webkit-outer-spin-button {
   background-color: azure;
 }
 
+@media (max-width: 1200px) {
+  .banner_width {
+    width: 13rem;
+  }
+}
+
+@media (max-width: 992px) {
+  .banner_width {
+    width: 13rem;
+  }
+}
+
 @media (max-width: 768px) {
   .bg__col1 {
     background-image: url("../images/Illustrasi\ Login.png");
     background-size: contain;
     background-position: top;
+  }
+  .banner_width {
+    width: 15rem;
+  }
+}
+
+@media (max-width: 530px) {
+  .banner_width {
+    width: 13rem;
   }
 }
