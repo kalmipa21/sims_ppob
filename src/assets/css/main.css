@@ -47,3 +47,11 @@ input[type="number"]::-webkit-outer-spin-button {
   background-size: contain;
   background-color: azure;
 }
+
+@media (max-width: 768px) {
+  .bg__col1 {
+    background-image: url("../images/Illustrasi\ Login.png");
+    background-size: contain;
+    background-position: top;
+  }
+}

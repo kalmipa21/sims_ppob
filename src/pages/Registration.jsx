@@ -83,11 +83,12 @@ export default function Registration() {
 
   return (
     <Container className=" d-flex vh-100">
-      <Col sm="6" className=" d-flex justify-content-center align-items-center">
-        <Card
-          style={{ width: "28rem", border: "0rem" }}
-          className="me-3 me-lg-0 "
-        >
+      <Col
+        xs="12"
+        md="6"
+        className="d-flex justify-content-center align-items-center bg__col1"
+      >
+        <Card style={{ width: "28rem", border: "0rem" }} className="mx-auto">
           <Card.Body>
             <Card.Title className="d-flex justify-content-center text-center my-2 align-items-center  ">
               <img src={Logo} alt="logo" />
@@ -309,14 +310,14 @@ export default function Registration() {
         </Card>
       </Col>
       <Col
-        sm="6"
-        className=" bg-body-secondary d-flex justify-content-center align-items-center"
+        md="6"
+        className=" d-none bg-body-secondary d-md-flex justify-content-center align-items-center"
       >
         <Image
           src={IllusLogin}
           alt="Login Ilustration"
           fluid
-          className=" min-vh-100 w-auto"
+          className=" min-vh-100 w-auto center"
         />
       </Col>
     </Container>
