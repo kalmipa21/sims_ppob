@@ -18,7 +18,7 @@ export default function PopupService(props) {
     const param = {
       service_code: props.nominal.service_code,
     };
-    console.log(param);
+    // console.log(param);
     axiosInstance
       .post("/transaction", param)
       .then((response) => {
@@ -28,7 +28,7 @@ export default function PopupService(props) {
         }
       })
       .catch((error) => {
-        console.error(error.response);
+        // console.error(error.response);
         if (error.response.data.status === 102 || 108) {
           setFailedPopup(true);
         }

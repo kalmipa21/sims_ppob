@@ -14,7 +14,7 @@ export default function Service() {
   function handleSubmitPay(event) {
     event.preventDefault();
     setModalShow(true);
-    console.log("service_code", service.service_code);
+    // console.log("service_code", service.service_code);
   }
 
   return (
