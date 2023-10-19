@@ -4,18 +4,18 @@ import formatCurrency from "../utils/currency";
 import DefaultPhoto from "../assets/images/Profile Photo.png";
 import { useState } from "react";
 
-export default function ProfileNBalance({ getBalance, getProfile }) {
+export default function ProfileNBalance() {
   const [seenSaldo, setSeenSaldo] = useState(false);
 
-  const allLocalStorageData = {};
+  const allSessionStorageData = {};
 
-  for (let i = 0; i < localStorage.length; i++) {
-    const key = localStorage.key(i);
-    const value = localStorage.getItem(key);
-    allLocalStorageData[key] = value;
+  for (let i = 0; i < sessionStorage.length; i++) {
+    const key = sessionStorage.key(i);
+    const value = sessionStorage.getItem(key);
+    allSessionStorageData[key] = value;
   }
 
-  // console.log("allLocalStorageData", allLocalStorageData);
+  // console.log("allSessionStorageData", allSessionStorageData);
 
   function handleSeenSaldo() {
     setSeenSaldo(!seenSaldo);
@@ -23,10 +23,10 @@ export default function ProfileNBalance({ getBalance, getProfile }) {
 
   function profilePicture() {
     if (
-      allLocalStorageData.profile_image !==
+      allSessionStorageData.profile_image !==
       "https://minio.nutech-integrasi.app/take-home-test/null"
     ) {
-      return allLocalStorageData.profile_image;
+      return allSessionStorageData.profile_image;
     }
     return DefaultPhoto;
   }
@@ -41,7 +41,7 @@ export default function ProfileNBalance({ getBalance, getProfile }) {
         />
         <h6 className=" mt-3">Selamat Datang,</h6>
         <h3>
-          {allLocalStorageData.first_name} {allLocalStorageData.last_name}
+          {allSessionStorageData.first_name} {allSessionStorageData.last_name}
         </h3>
       </Col>
       <Col
@@ -50,7 +50,7 @@ export default function ProfileNBalance({ getBalance, getProfile }) {
       >
         <h6>Saldo Anda</h6>
         {seenSaldo ? (
-          <h3>{formatCurrency(allLocalStorageData.balance)}</h3>
+          <h3>{formatCurrency(allSessionStorageData.balance)}</h3>
         ) : (
           <h3>
             Rp <i className="bi bi-three-dots"></i>

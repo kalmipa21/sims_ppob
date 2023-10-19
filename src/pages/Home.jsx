@@ -36,10 +36,13 @@ export default function Home() {
         // setGetProfile(response.data.data);
 
         // Set localstorage
-        localStorage.setItem("first_name", response.data.data.first_name);
-        localStorage.setItem("last_name", response.data.data.last_name);
-        localStorage.setItem("email", response.data.data.email);
-        localStorage.setItem("profile_image", response.data.data.profile_image);
+        sessionStorage.setItem("first_name", response.data.data.first_name);
+        sessionStorage.setItem("last_name", response.data.data.last_name);
+        sessionStorage.setItem("email", response.data.data.email);
+        sessionStorage.setItem(
+          "profile_image",
+          response.data.data.profile_image
+        );
 
         // Set Profile to store
         // dispatch({
@@ -77,8 +80,8 @@ export default function Home() {
         // setGetBalance(response.data.data.balance);
         const balance = response.data.data.balance;
 
-        // Set localstorage
-        localStorage.setItem("balance", balance);
+        // Set sessionStorage
+        sessionStorage.setItem("balance", balance);
 
         // Set balanceto store
         // dispatch({ type: "SET_BALANCE", value: balance });

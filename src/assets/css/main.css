@@ -16,7 +16,7 @@ h6 {
   width: 30%;
 }
 
-/* Add this CSS to your stylesheet or component's CSS file */
+/* Add this CSS to stylesheet or component's CSS file */
 input[type="number"]::-webkit-inner-spin-button,
 input[type="number"]::-webkit-outer-spin-button {
   -webkit-appearance: none;
@@ -24,7 +24,26 @@ input[type="number"]::-webkit-outer-spin-button {
 }
 
 .fixed-width-button {
-  width: 6rem; /* Adjust the width to your desired fixed size */
-  text-align: center; /* Center-align the text within the button */
-  /* Add other styling as needed */
+  width: 6rem;
+  text-align: center;
+}
+
+.edit_picture {
+  position: relative;
+  width: 8rem;
+  border: 0rem;
+  border-radius: 50%;
+}
+
+.edit_picture::after {
+  content: "";
+  position: absolute;
+  width: 2.5rem;
+  height: 2.5rem;
+  bottom: 0;
+  right: 0;
+  border-radius: 50%;
+  background-image: url("../images/editphoto.png");
+  background-size: contain;
+  background-color: azure;
 }
