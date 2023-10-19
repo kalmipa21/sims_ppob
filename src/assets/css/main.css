@@ -71,6 +71,15 @@ input[type="number"]::-webkit-outer-spin-button {
   }
 }
 
+@media (max-width: 576px) {
+  .text__size1 {
+    font-size: 0.8rem;
+  }
+  .text__size2 {
+    font-size: 1.2rem;
+  }
+}
+
 @media (max-width: 530px) {
   .banner_width {
     width: 13rem;

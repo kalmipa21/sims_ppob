@@ -33,19 +33,24 @@ export default function ProfileNBalance() {
 
   return (
     <>
-      <Col sm="5" className=" d-grid justify-content-start align-items-center">
+      <Col
+        xs="4"
+        sm="5"
+        className="d-grid justify-content-start align-items-center"
+      >
         <Image
           style={{ width: "4rem" }}
           src={profilePicture()}
           alt="DefaultPhoto"
           className="rounded-circle"
         />
-        <h6 className=" mt-3">Selamat Datang,</h6>
-        <h3>
+        <h6 className="mt-3 text__size1">Selamat Datang,</h6>
+        <h3 className="text__size2">
           {allSessionStorageData.first_name} {allSessionStorageData.last_name}
         </h3>
       </Col>
       <Col
+        xs="8"
         sm="7"
         className="p-4 bg-danger rounded-4 text-white d-flex flex-column justify-content-center"
       >
