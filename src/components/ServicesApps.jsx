@@ -10,7 +10,10 @@ export default function ServicesApps({ getServices }) {
 
   function hanldeToService(service) {
     // Set selected service to reducer
-    dispatch({ type: "SET_SERVICE", value: service });
+    dispatch({ type: "SET_SERVICE_CODE", value: service.service_code });
+    dispatch({ type: "SET_SERVICE_TARIF", value: service.service_tariff });
+    dispatch({ type: "SET_SERVICE_NAME", value: service.service_name });
+    dispatch({ type: "SET_SERVICE_ICON", value: service.service_icon });
 
     navigate("/home/service");
   }
@@ -20,7 +23,7 @@ export default function ServicesApps({ getServices }) {
         getServices.map((item, index) => (
           <Col key={`${item}-${index}`} sm="1">
             <Button
-              onClick={() => hanldeToService(item.service_code)}
+              onClick={() => hanldeToService(item)}
               variant="transparent"
               style={{ border: "0" }}
             >
